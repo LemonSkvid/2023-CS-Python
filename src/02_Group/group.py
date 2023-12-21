@@ -21,17 +21,26 @@ class Person:
     sex: str
     bday: date
 
-    def __init__(self, name: str, surname: str, sex: str, bday: date):
-        raise NotImplementedError
+    def __init__(self, name: str, surname: str, sex: str, b_day: date):
+        self.name = name
+        self.surname = surname
+        self.sex = sex
+
+        if isinstance(b_day, date):
+            self.b_day = b_day
+        else:
+            error = "b_day must be date type"
+            raise ValueError(error)
 
     def __repr__(self) -> str:
-        return f"Person({self.name!r}, {self.surname!r}, {self.sex!r}, {self.bday!r})"
+        return f"Person({self.name!r}, {self.surname!r}, {self.sex!r}, {self.b_day!r})"
 
     def __eq__(self, other: "Person") -> bool:
-        raise NotImplementedError
+        return self.__repr__() == other.__repr__()
 
     def full_ages(self):
-        raise NotImplementedError
+        today = datetime.now(tz=timezone.utc)
+        return today.year - self.b_day.year
 
 
 class Student(Person):
@@ -48,15 +57,18 @@ class Student(Person):
     group: int
     skill: int
 
-    def __init__(self, name: str, surname: str, sex: str, bday: date, group: int, skill: int):
-        raise NotImplementedError
+    def __init__(self, name: str, surname: str, sex: str, b_day: date, group: int, skill: int):
+        super().__init__(name, surname, sex, b_day)
+
+        self.group = group
+        self.skill = skill
 
     def __repr__(self) -> str:
-        raise NotImplementedError
+        return (f"Student({self.name!r}, {self.surname!r}, {self.sex!r},"
+                f" {self.b_day!r}, {self.group!r}, {self.skill!r})")
 
     def __eq__(self, other: "Student") -> bool:
-        raise NotImplementedError
-
+        return self.__repr__() == other.__repr__()
 
 class Group:
     """
@@ -65,24 +77,32 @@ class Group:
 
     group: List[Student]
 
-    def __init__(self, group: List[Student]):
+     def __init__(self, group: List[Student]):
         self.group = list(group)
 
     def __eq__(self, other: "Group") -> bool:
-        raise NotImplementedError
+        if len(self.group) != len(other.group):
+            return False
 
-    def __repr__(self) -> str:
+        for ind in range(len(self.group)):
+            if str(self.group[ind]) != str(other.group[ind]):
+                return False
+        else:
+            return True
+
+def __repr__(self) -> str:
         return f"Group([{', '.join([repr(group) for group in self.group])}])"
 
     def sort_by_age(self, *, reverse: bool = False):
-        self.group = sorted(
-            self.group,
-            key=lambda student: student.full_ages(),
-            reverse=reverse,
-        )
-
+        self.group = sorted(self.group, key=lambda student: student.full_ages(), reverse=reverse)
     def sort_by_skill(self, *, reverse=False):
-        raise NotImplementedError
+        self.group = sorted(self.group, key=lambda student: student.skill, vreverse=reverse)
 
     def sort_by_age_and_skill(self, *, reverse=False):
-        raise NotImplementedError
+        self.sort_by_skill(reverse=reverse)
+        self.sort_by_age(reverse=reverse)
+
+
+if __name__ == "__main__":  # Start
+    import doctest
+    doctest.testmod()
