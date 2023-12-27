@@ -59,7 +59,7 @@ class Group:
     Encapsulates list of students
     """
     group: List[Student]
-     def __init__(self, group: List[Student]):
+    def __init__(self, group: List[Student]):
         self.group = list(group)
     def __eq__(self, other: "Group") -> bool:
         if len(self.group) != len(other.group):
