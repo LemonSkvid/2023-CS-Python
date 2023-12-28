@@ -9,11 +9,13 @@ def _split_if_string(string_or_list: Union[List[str], str]) -> List[str]:
 def prefix_evaluate(prefix_equation: Union[List[str], str]) -> Optional[int]:
     if not prefix_equation:
         return None
+    prefix_evaluation = prefix_evaluation.split() \
+    	if isinstance(prefix_evaluation, str) \
+    	else prefix_evaluation
     prefix_equation = _split_if_string(prefix_equation)
     value_stack = []
-    while prefix_equation:
-        el = prefix_equation.pop()
-        if el not in ops:
+    for el in reversed(prefix_evaluation):
+        if el.isdigit:
             value_stack.append(int(el))
         else:
             r_val = value_stack.pop()
