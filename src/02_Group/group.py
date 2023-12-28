@@ -72,13 +72,10 @@ class Group:
             return True
 def __repr__(self) -> str:
         return f"Group([{', '.join([repr(group) for group in self.group])}])"
-
 def sort_by_age(self, *, reverse: bool = False):
 		self.group = sorted(self.group,key=lambda student: student.full_ages(),reverse=reverse,)
-
 def sort_by_skill(self, *, reverse=False):
 		self.group = sorted(self.group, key=lambda student: student.skill, vreverse=reverse)
-
 def sort_by_age_and_skill(self, *, reverse=False):
 		self.sort_by_skill(reverse=reverse)
 		self.sort_by_age(reverse=reverse)
