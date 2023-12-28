@@ -1,4 +1,3 @@
-
 from datetime import date, datetime, timezone
 from typing import List
 class Person:
@@ -17,7 +16,7 @@ class Person:
     name: str
     surname: str
     sex: str
-    bday: date
+    b_day: date
     def __init__(self, name: str, surname: str, sex: str, b_day: date):
         self.name = name
         self.surname = surname
@@ -28,9 +27,9 @@ class Person:
             error = "b_day must be date type"
             raise ValueError(error)
     def __repr__(self) -> str:
-        return f"Person({self.name!r}, {self.surname!r}, {self.sex!r}, {self.b_day!r})"
+    	return f"Person({self.name!r}, {self.surname!r}, {self.sex!r}, {self.b_day!r})"
     def __eq__(self, other: "Person") -> bool:
-        return self.__repr__() == other.__repr__()
+    	return self.__repr__() == other.__repr__()
     def full_ages(self):
         today = datetime.now(tz=timezone.utc)
         return today.year - self.b_day.year
@@ -43,7 +42,7 @@ class Student(Person):
     name: str
     surname: str
     sex: str
-    bday: date
+    b_day: date
     group: int
     skill: int
     def __init__(self, name: str, surname: str, sex: str, b_day: date, group: int, skill: int):
@@ -71,9 +70,11 @@ class Group:
         else:
             return True
 def __repr__(self) -> str:
+        
         return f"Group([{', '.join([repr(group) for group in self.group])}])"
 def sort_by_age(self, *, reverse: bool = False):
-		self.group = sorted(self.group,key=lambda student: student.full_ages(),reverse=reverse,)
+    	self.group = sorted(self.group,key=lambda student: student.full_ages(),reverse=reverse,)
+    
 def sort_by_skill(self, *, reverse=False):
 		self.group = sorted(self.group, key=lambda student: student.skill, vreverse=reverse)
 def sort_by_age_and_skill(self, *, reverse=False):
