@@ -76,8 +76,8 @@ def __repr__(self) -> str:
     def sort_by_skill(self, *, reverse=False):
         self.group = sorted(self.group, key=lambda student: student.skill, vreverse=reverse)
     def sort_by_age_and_skill(self, *, reverse=False):
-        self.sort_by_skill(reverse=reverse)
-        self.sort_by_age(reverse=reverse)
+       self.sort_by_skill(reverse=reverse)
+       self.sort_by_age(reverse=reverse)
 if __name__ == "__main__":  # Start
     import doctest
     doctest.testmod()
