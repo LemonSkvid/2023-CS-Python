@@ -11,7 +11,7 @@ class Person:
     >>> Person('Ivan', 'Ivanov', 'man', "1989.4.26")
     Traceback (most recent call last):
         ...
-    ValueError: bday must be date type
+    ValueError: b_day must be date type
     """
     name: str
     surname: str
