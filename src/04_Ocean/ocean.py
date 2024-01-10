@@ -31,7 +31,7 @@ class Ocean:
                     species = self.state[i][j]
                     neighbors = self.count_neighbors(i, j, species)
                     if neighbors >= 4 or neighbors <= 1:
-                        new_state[i][j] = ''  # Die
+                        new_state[i][j] = ''
                     else:
                         new_state[i][j] = species
                 elif self.state[i][j] == '0':
