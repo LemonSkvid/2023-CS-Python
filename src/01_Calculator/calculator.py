@@ -8,8 +8,8 @@ def _split_if_string(string_or_list: Union[List[str], str]) -> List[str]:
 def prefix_evaluate(prefix_equation: Union[List[str], str]) -> Optional[int]:
     if not prefix_equation:
         return None
-    prefix_evaluation = prefix_evaluation.split() \
-    if isinstance(prefix_evaluation, str) \
+    prefix_evaluation = prefix_evaluation.split()
+    if isinstance(prefix_evaluation, str)
         else prefix_evaluation
     prefix_equation = _split_if_string(prefix_equation)
     value_stack = []
