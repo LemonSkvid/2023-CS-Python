@@ -1,6 +1,5 @@
 from operator import add, mul, sub, truediv
 from typing import List, Optional, Union
-
 ops = {"+": add, "-": sub, "*": mul, "/": truediv}
 
 def _split_if_string(string_or_list: Union[List[str], str]) -> List[str]:
@@ -10,8 +9,8 @@ def prefix_evaluate(prefix_equation: Union[List[str], str]) -> Optional[int]:
     if not prefix_equation:
         return None
     prefix_evaluation = prefix_evaluation.split() \
-    	if isinstance(prefix_evaluation, str) \
-    	else prefix_evaluation
+    if isinstance(prefix_evaluation, str) \
+        else prefix_evaluation
     prefix_equation = _split_if_string(prefix_equation)
     value_stack = []
     for el in reversed(prefix_evaluation):
@@ -22,7 +21,6 @@ def prefix_evaluate(prefix_equation: Union[List[str], str]) -> Optional[int]:
             l_val = value_stack.pop()
             operation = ops[el]
             value_stack.append(operation(r_val, l_val))
-
     return value_stack[0]
 
 def to_prefix(equation: str) -> List[str]:
