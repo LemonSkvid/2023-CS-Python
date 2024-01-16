@@ -48,7 +48,5 @@ def to_prefix(equation: str) -> List[str]:
     while stack:
         output.append(stack.pop())
     return list(reversed(output))
-
-
 def calculate(equation: str) -> int:
     return prefix_evaluate(to_prefix(equation))
