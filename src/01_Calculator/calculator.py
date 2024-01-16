@@ -22,7 +22,6 @@ def prefix_evaluate(prefix_equation: Union[List[str], str]) -> Optional[int]:
             operation = ops[el]
             value_stack.append(operation(r_val, l_val))
     return value_stack[0]
-
 def to_prefix(equation: str) -> List[str]:
     precedence = {"+": 1, "-": 1, "*": 2, "/": 2}
     operators = set("+*-/")
