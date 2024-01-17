@@ -17,7 +17,7 @@ class Test0cean:
     ocean = Ocean(init_state)
 
     def test_ocean_init(self):
-        assert str(self.ocean) == "\n".join(["".join(str(el) for el in row) 
+        assert str(self.ocean) == "\n".join(["".join(str(el) for el in row)
                                             for row in self.init_state])
     def test_ocean_repr(self):
         assert self.ocean.__repr__() == f"Ocean({self.init_state!r})"
