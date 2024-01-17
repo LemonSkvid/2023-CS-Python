@@ -56,7 +56,7 @@ class Ocean:
                     else:
                         next_row.append(0)
                         
-            next_state.append(next_row)
+            new_state.append(next_row)
 
         return Ocean(init_state=next_state)
 
