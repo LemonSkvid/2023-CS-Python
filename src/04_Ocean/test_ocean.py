@@ -1,7 +1,7 @@
 from typing import ClassVar
 from ocean import Ocean
 
-class Test0cean:
+class TestOcean:
     init_state: ClassVar[list[list[int]]] = [
         [0, 2, 0, 1, 3],
         [0, 2, 0, 3, 3],
