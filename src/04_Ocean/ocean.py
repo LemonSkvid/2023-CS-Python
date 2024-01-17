@@ -11,6 +11,10 @@ class Ocean:
     def __str__(self) -> str:
         return "\n".join(["".join(el for el in row) for row in self.state])
         
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}({self.state!r})"
+
+        
     def gen_next_quantum(self) -> "Ocean":
         new_state = []
         fisch = 2
