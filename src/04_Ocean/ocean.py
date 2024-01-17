@@ -3,9 +3,9 @@ from typing import List
 
 
 class Ocean:
-    state: List[List[str]]
+    state: List[List[int]]
     
-    def __init__(self, init_state: List[List[str]]):
+    def __init__(self, init_state: List[List[int]]):
         self.state = init_state
 
     def __str__(self) -> str:
