@@ -62,7 +62,7 @@ class Ocean:
 
 if __name__ == "__main__":
     n_quantums = int(sys.stdin.readline())
-    n_rows, n_cols = (int(i) for i in sys.stdin.readline().split())
+    n_rows, n_clms = (int(i) for i in sys.stdin.readline().split())
     init_state = []
     for i in range(n_rows):
         line = [int(i) for i in sys.stdin.readline().split()]
