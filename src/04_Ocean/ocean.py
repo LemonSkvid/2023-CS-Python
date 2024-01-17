@@ -58,7 +58,7 @@ class Ocean:
                         
             new_state.append(next_row)
 
-        return Ocean(init_state=next_state)
+        return Ocean(init_state=new_state)
 
 if __name__ == "__main__":
     n_quantums = int(sys.stdin.readline())
