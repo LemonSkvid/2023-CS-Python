@@ -2,13 +2,15 @@ from typing import ClassVar
 from ocean import Ocean
 
 class Test0cean:
-    init_state: ClassVar[list[list[int]]] = [[0, 2, 0, 1, 3],
+    init_state: ClassVar[list[list[int]]] = [
+        [0, 2, 0, 1, 3],
         [0, 2, 0, 3, 3],
         [0, 2, 2, 2, 1],
         [2, 1, 2, 0, 3],
         [3, 3, 1, 3, 3],
     ]
-    next_state: ClassVar[list[list[int]]] = [[0, 0, 0, 1, 3],
+    next_state: ClassVar[list[list[int]]] = [
+        [0, 0, 0, 1, 3],
         [2, 2, 0, 3, 3],
         [2, 0, 0, 2, 1],
         [0, 1, 2, 2, 3],
