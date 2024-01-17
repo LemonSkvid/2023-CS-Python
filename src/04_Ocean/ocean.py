@@ -4,13 +4,9 @@ from typing import List
 
 class Ocean:
     state: List[List[str]]
-    rows: int
-    cols: int
-
+    
     def __init__(self, init_state: List[List[str]]):
         self.state = init_state
-        self.rows = len(init_state)
-        self.cols = len(init_state[0])
 
     def __str__(self) -> str:
         return "\n".join(["".join(el for el in row) for row in self.state])
